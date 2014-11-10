@@ -600,6 +600,133 @@ class WebhooksioAPI extends WebhooksioBase
 		}
 
 	/*****************************************************************************/
+	/************************* Related Methods: Recipes **************************/
+	/*****************************************************************************/
+
+		/**
+		 * Adds a Recipe to an account
+		 * 
+		 * POST - /v1/accounts/:account_id/recipes
+		 * 
+		 * Full details can be found at http://webhooks.io/docs/api/#create-recipe
+		 * 
+		 * @method createRecipe
+		 * @param {String} account_id 
+		 * @param {Object} params
+		 * @param {Function} callback
+		*/
+		public function createRecipe(string $account_id, struct $params=null){
+			$endpoint = $this->$expandEndpoint('/v1/accounts/:account_id/recipes', [$account_id]);
+			return $this->execute($endpoint, "POST", $params, []);
+		}
+
+		/**
+		 * Updates a Recipe.
+		 * 
+		 * PUT - /v1/accounts/:account_id/recipes/:recipe_id
+		 * 
+		 * Full details can be found at http://webhooks.io/docs/api/#update-recipe
+		 * 
+		 * @method updateRecipe
+		 * @param {String} account_id 
+		 * @param {String} recipe_id 
+		 * @param {Object} params
+		 * @param {Function} callback
+		*/
+		public function updateRecipe(string $account_id, string $recipe_id, struct $params=null){
+			$endpoint = $this->$expandEndpoint('/v1/accounts/:account_id/recipes/:recipe_id', [$account_id, $recipe_id]);
+			return $this->execute($endpoint, "PUT", $params, []);
+		}
+
+		/**
+		 * Publishes the draft recipe so it can be used as the production recipe.
+		 * 
+		 * POST - /v1/accounts/:account_id/recipes/:recipe_id/publish
+		 * 
+		 * Full details can be found at http://webhooks.io/docs/api/#publish-recipe
+		 * 
+		 * @method publishRecipe
+		 * @param {String} account_id 
+		 * @param {String} recipe_id 
+		 * @param {Object} params
+		 * @param {Function} callback
+		*/
+		public function publishRecipe(string $account_id, string $recipe_id, struct $params=null){
+			$endpoint = $this->$expandEndpoint('/v1/accounts/:account_id/recipes/:recipe_id/publish', [$account_id, $recipe_id]);
+			return $this->execute($endpoint, "POST", $params, []);
+		}
+
+		/**
+		 * Returns the details for a specfic recipe.
+		 * 
+		 * GET - /v1/accounts/:account_id/recipes/:recipe_id
+		 * 
+		 * Full details can be found at http://webhooks.io/docs/api/#get-recipe
+		 * 
+		 * @method getRecipe
+		 * @param {String} account_id 
+		 * @param {String} recipe_id 
+		 * @param {Object} params
+		 * @param {Function} callback
+		*/
+		public function getRecipe(string $account_id, string $recipe_id, struct $params=null){
+			$endpoint = $this->$expandEndpoint('/v1/accounts/:account_id/recipes/:recipe_id', [$account_id, $recipe_id]);
+			return $this->execute($endpoint, "GET", $params, []);
+		}
+
+		/**
+		 * Returns a collection of recipes for an account.
+		 * 
+		 * GET - /v1/accounts/:account_id/recipes
+		 * 
+		 * Full details can be found at http://webhooks.io/docs/api/#list-recipe
+		 * 
+		 * @method getRecipes
+		 * @param {String} account_id 
+		 * @param {Object} params
+		 * @param {Function} callback
+		*/
+		public function getRecipes(string $account_id, struct $params=null){
+			$endpoint = $this->$expandEndpoint('/v1/accounts/:account_id/recipes', [$account_id]);
+			return $this->execute($endpoint, "GET", $params, []);
+		}
+
+		/**
+		 * Deletes a Recipe.
+		 * 
+		 * DELETE - /v1/accounts/:account_id/recipes/:recipe_id
+		 * 
+		 * Full details can be found at http://webhooks.io/docs/api/#delete-recipe
+		 * 
+		 * @method deleteRecipe
+		 * @param {String} account_id 
+		 * @param {String} recipe_id 
+		 * @param {Object} params
+		 * @param {Function} callback
+		*/
+		public function deleteRecipe(string $account_id, string $recipe_id, struct $params=null){
+			$endpoint = $this->$expandEndpoint('/v1/accounts/:account_id/recipes/:recipe_id', [$account_id, $recipe_id]);
+			return $this->execute($endpoint, "DELETE", $params, []);
+		}
+
+		/**
+		 * Provides the ability to test a recipe to ensure the output is correct.  The recipe MUST be wrapped in 'function wh(){}' and return exit([data]) as shown in the sample below.
+		 * 
+		 * PUT - /v1/accounts/:account_id/recipes/test
+		 * 
+		 * Full details can be found at http://webhooks.io/docs/api/#test-recipe
+		 * 
+		 * @method testRecipe
+		 * @param {String} account_id 
+		 * @param {Object} params
+		 * @param {Function} callback
+		*/
+		public function testRecipe(string $account_id, struct $params=null){
+			$endpoint = $this->$expandEndpoint('/v1/accounts/:account_id/recipes/test', [$account_id]);
+			return $this->execute($endpoint, "PUT", $params, []);
+		}
+
+	/*****************************************************************************/
 	/************************* Related Methods: Providers **************************/
 	/*****************************************************************************/
 
